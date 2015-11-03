@@ -22,4 +22,4 @@ This little project is all about a place where people can find, share and discus
   - Difficulty
   - Rating
   - Category
-4. Rating other recipes
+4. Rating and commentating other recipes
