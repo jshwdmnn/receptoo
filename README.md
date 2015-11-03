@@ -7,19 +7,19 @@ web application project (HTW Berlin)
 
 
 ## features
-- general database for recipes
-- submitting recipes, having
-  1. title
-  2. description
-  3. ingredients as tags
-  4. difficulty
-  5. category
-  6. duration
-- searching for recipes by
-  1. keywords
-  2. ingredients
-  3. duration
-  4. difficulty
-  5. rating
-  6. category
-- rating other recipes
+1. general database for recipes
+2. submitting recipes, having
+  - title
+  - description
+  - ingredients as tags
+  - difficulty
+  - category
+  - duration
+3. searching for recipes by
+  - keywords
+  - ingredients
+  - duration
+  - difficulty
+  - rating
+  - category
+4. rating other recipes
