@@ -1,3 +1,6 @@
 class Recipe < ActiveRecord::Base
-	attr_accessor :title, :description
+
+	enum category: [:MEDITERREAN, :BEVERAGE, :HALAL, :INDIAN, :CHINESE, :SALAD, :DESSERT, :SOUP, :STARTER, :FINGERFOOD, :OTHER]
+
+	attr_accessor :title, :description, :category
 end
