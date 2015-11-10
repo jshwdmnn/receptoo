@@ -6,5 +6,5 @@ class Recipe < ActiveRecord::Base
 	has_and_belongs_to_many :ingredients
 
 	validates_presence_of :title, :description, :category, :creator_name
-	attr_accessor :title, :description, :duration, :rating, :creator_name, :category, :ingredients, :comments
+	attr_accessor :title, :description, :duration, :rating, :difficulty, :creator_name, :category, :ingredients, :comments
 end

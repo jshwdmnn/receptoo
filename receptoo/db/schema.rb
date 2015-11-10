@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110131231) do
+ActiveRecord::Schema.define(version: 20151110133704) do
 
   create_table "comments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "recipe_id"
+    t.string   "user"
+    t.text     "comment_text"
   end
 
   add_index "comments", ["recipe_id"], name: "index_comments_on_recipe_id"
@@ -24,11 +26,20 @@ ActiveRecord::Schema.define(version: 20151110131231) do
   create_table "ingredients", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "type"
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "title"
+    t.text     "description"
+    t.string   "category"
+    t.string   "creator_name"
+    t.integer  "duration"
+    t.integer  "rating"
+    t.integer  "difficulty"
   end
 
   create_table "recipes_and_ingredients", force: :cascade do |t|
