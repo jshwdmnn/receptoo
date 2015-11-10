@@ -27,19 +27,19 @@ ActiveRecord::Schema.define(version: 20151110133704) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
-    t.string   "type"
+    t.integer  "type"
   end
 
   create_table "recipes", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "title"
-    t.text     "description"
-    t.string   "category"
-    t.string   "creator_name"
     t.integer  "duration"
     t.integer  "rating"
     t.integer  "difficulty"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "category"
+    t.string   "creator_name"
   end
 
   create_table "recipes_and_ingredients", force: :cascade do |t|
