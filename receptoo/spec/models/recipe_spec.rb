@@ -32,5 +32,15 @@ RSpec.describe Recipe, type: :model do
 
   	end
 
+    it "have many comments" do
+      r = Recipe.reflect_on_association(:comments)
+      expect(r.macro).to eql :has_many
+    end
+
+    it "have many ingredients" do
+      r = Recipe.reflect_on_association(:ingredients)
+      expect(r.macro).to eql :has_and_belongs_to_many
+    end
+
   end
 end

@@ -14,5 +14,10 @@ RSpec.describe Ingredient, type: :model do
       expect(ing).to have_attributes(:name => "Tomate", :type => Ingredient.types[:vegetable])
     end
 
+    it "belongs to many recipes" do
+      i = Ingredient.reflect_on_association(:recipes)
+      expect(i.macro).to eql :has_and_belongs_to_many
+    end
+
   end
 end
