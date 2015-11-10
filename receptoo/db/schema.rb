@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110142936) do
+ActiveRecord::Schema.define(version: 20151110151143) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20151110142936) do
     t.integer  "ingredient_type"
   end
 
+  create_table "ingredients_and_recipes", id: false, force: :cascade do |t|
+    t.integer "ingredient_id"
+    t.integer "recipe_id"
+  end
+
+  add_index "ingredients_and_recipes", ["ingredient_id"], name: "index_ingredients_and_recipes_on_ingredient_id"
+  add_index "ingredients_and_recipes", ["recipe_id"], name: "index_ingredients_and_recipes_on_recipe_id"
+
   create_table "recipes", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -41,13 +49,5 @@ ActiveRecord::Schema.define(version: 20151110142936) do
     t.integer  "rating"
     t.integer  "difficulty"
   end
-
-  create_table "recipes_and_ingredients", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-  end
-
-  add_index "recipes_and_ingredients", ["ingredient_id"], name: "index_recipes_and_ingredients_on_ingredient_id"
-  add_index "recipes_and_ingredients", ["recipe_id"], name: "index_recipes_and_ingredients_on_recipe_id"
 
 end
