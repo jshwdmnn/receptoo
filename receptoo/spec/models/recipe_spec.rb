@@ -11,10 +11,10 @@ RSpec.describe Recipe, type: :model do
   	it 'has fields' do
   		rec.title 			 = "Oma´s Eintopf"
 			rec.description  = "Eintopf mit Kartoffeln und Würstchen"
-			rec.ingredients  = Ingredient.new(name: "Tomate", ingredient_type: Ingredient.ingredient_types[:vegetable])
+			rec.ingredients  = [Ingredient.new(name: "Tomate", ingredient_type: Ingredient.ingredient_types[:vegetable])]
 			rec.category		 = Recipe.categories[:halal]
 			rec.duration     = 20
-			rec.comments		 = Comment.new(user: "Klaus", comment_text: "Das war aber lecker.")
+			rec.comments		 = [Comment.new(user: "Klaus", comment_text: "Das war aber lecker.")]
 			rec.rating			 = 3
 			rec.creator_name = "Peter Pan"
   		expect(rec).to have_attributes(title: "Oma´s Eintopf", 
@@ -22,13 +22,13 @@ RSpec.describe Recipe, type: :model do
   																	 duration: 20,
   																	 rating: 3,
   																	 creator_name: "Peter Pan",
-  																	 category: Recipe.categories[:halal])
+  																	 category: "halal")
 
   		# we getting the index from ingredient types
-  		expect(rec.ingredients.ingredient_type).to eql 1
+  		expect(rec.ingredients[0].ingredient_type).to eql "vegetable"
 
-  		expect(rec.comments.user).to eql "Klaus"
-  		expect(rec.comments.comment_text).to eql "Das war aber lecker."
+  		expect(rec.comments[0].user).to eql "Klaus"
+  		expect(rec.comments[0].comment_text).to eql "Das war aber lecker."
 
   	end
 
