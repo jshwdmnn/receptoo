@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 20151110142936) do
   create_table "recipes", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "duration"
-    t.integer  "rating"
-    t.integer  "difficulty"
     t.string   "title"
     t.text     "description"
     t.integer  "category"
     t.string   "creator_name"
+    t.integer  "duration"
+    t.integer  "rating"
+    t.integer  "difficulty"
   end
 
   create_table "recipes_and_ingredients", force: :cascade do |t|

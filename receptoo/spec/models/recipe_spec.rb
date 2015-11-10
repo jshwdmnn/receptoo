@@ -11,7 +11,7 @@ RSpec.describe Recipe, type: :model do
   	it 'has fields' do
   		rec.title 			 = "Oma´s Eintopf"
 			rec.description  = "Eintopf mit Kartoffeln und Würstchen"
-			rec.ingredients  = Ingredient.new(name: "Tomate", type: Ingredient.types[:vegetable])
+			rec.ingredients  = Ingredient.new(name: "Tomate", ingredient_type: Ingredient.ingredient_types[:vegetable])
 			rec.category		 = Recipe.categories[:halal]
 			rec.duration     = 20
 			rec.comments		 = Comment.new(user: "Klaus", comment_text: "Das war aber lecker.")
@@ -25,7 +25,7 @@ RSpec.describe Recipe, type: :model do
   																	 category: Recipe.categories[:halal])
 
   		# we getting the index from ingredient types
-  		expect(rec.ingredients.type).to eql 1
+  		expect(rec.ingredients.ingredient_type).to eql 1
 
   		expect(rec.comments.user).to eql "Klaus"
   		expect(rec.comments.comment_text).to eql "Das war aber lecker."

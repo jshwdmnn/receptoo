@@ -10,8 +10,8 @@ RSpec.describe Ingredient, type: :model do
     end
 
     it 'has fields' do
-      ing = Ingredient.new(name: "Tomate", type: Ingredient.types[:vegetable])
-      expect(ing).to have_attributes(:name => "Tomate", :type => Ingredient.types[:vegetable])
+      ing = Ingredient.new(name: "Tomate", ingredient_type: Ingredient.ingredient_types[:vegetable])
+      expect(ing).to have_attributes(:name => "Tomate", :ingredient_type => Ingredient.ingredient_types[:vegetable])
     end
 
     it "belongs to many recipes" do
