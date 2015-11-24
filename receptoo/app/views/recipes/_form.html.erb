@@ -19,7 +19,7 @@
     <%= f.label :category %>
     <%= f.select :category, options_for_select(Recipe.categories.keys.to_a) %>
     <%= f.label :ingredients %>
-    <%= f.select :ingredients, options_for_select(Ingredient.all) %>
+    <%= f.collection_check_boxes :ingredients, Ingredient.all, :id, :name, :item_wrapper_class => 'checkbox_container' %>
     <%= f.label :creator_name  %>
     <%= f.text_field :creator_name %>
 
