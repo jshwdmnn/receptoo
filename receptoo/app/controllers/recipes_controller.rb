@@ -25,6 +25,19 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    # dirty solution because ingredients don´t pass thru the permit function (see the private recipe_params instance method )
+    # so we iterate a second time over the original params hash
+    # remove the last element because it´s always an empty String in the Array
+    # and get by the index the corresponding Ingriedient Object and add it to recipe.ingredients
+    params[:recipe][:ingredients].each do |i|
+      if i != ""
+        int_value_of_id = Integer(i)
+
+        @ing = Ingredient.find_by_id(int_value_of_id)
+        @recipe.ingredients << @ing
+      end
+    end
+
 
     respond_to do |format|
       if @recipe.save
@@ -69,6 +82,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params[:recipe].permit(:title, :description, :category, :creator_name, :ingredients => [:id])
+      params.require(:recipe).permit(:title, :description, :category, :creator_name)
     end
 end

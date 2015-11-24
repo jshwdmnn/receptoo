@@ -22,7 +22,6 @@
     <%= f.collection_check_boxes :ingredients, Ingredient.all, :id, :name, :item_wrapper_class => 'checkbox_container' %>
     <%= f.label :creator_name  %>
     <%= f.text_field :creator_name %>
-
     <%= f.submit %>
   </div>
 <% end %>
