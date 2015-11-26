@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :comments
   resources :ingredients
   resources :recipes
+
+  get "/" => "recipes#index", :as => "root"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -36,12 +40,6 @@ Rails.application.routes.draw do
   #   end
 
   # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
 
   # Example resource route with concerns:
   #   concern :toggleable do
