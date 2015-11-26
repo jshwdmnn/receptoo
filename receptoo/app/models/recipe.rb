@@ -9,4 +9,8 @@ class Recipe < ActiveRecord::Base
 	validates_presence_of :title, :description, :category, :creator_name
 	
 	# :title, :description, :duration, :rating, :difficulty, :creator_name, :category, :ingredients, :comments
+	
+	def self.search(search)
+  	where("title LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%")
+	end
 end
